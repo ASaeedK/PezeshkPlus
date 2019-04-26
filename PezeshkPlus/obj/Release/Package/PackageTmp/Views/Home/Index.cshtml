@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<!-- slideshow start -->
+<div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slideshow="min-height: 300; max-height: 400;animation: push">
+
+    <ul class="uk-slideshow-items">
+        <li>
+            <img src="~/Images/doctor.jpg" alt="" uk-cover>
+            <div class="uk-overlay uk-overlay uk-position-center uk-position-small">
+                <h3 class="uk-margin-remove ">جستجوی برترین پزشکان سراسر کشور</h3>
+                <a href="~/Search"><button class="uk-button uk-button-secondary uk-button-small">جستجو کنید</button></a>
+            </div>
+        </li>
+        <li>
+            <img src="~/Images/about.jpg" alt="" uk-cover>
+            <div class="uk-overlay uk-overlay uk-position-center uk-position-small">
+                <h3 class="uk-margin-remove ">جستجوی برترین پزشکان سراسر کشور</h3>
+                <a href="~/Search"><button class="uk-button uk-button-secondary uk-button-small">جستجو کنید</button></a>
+</div>
+        </li>
+        <li>
+            <img src="~/Images/doctor.jpg" alt="" uk-cover>
+            <div class="uk-overlay uk-overlay uk-position-center uk-position-small">
+                <h3 class="uk-margin-remove ">جستجوی برترین پزشکان سراسر کشور</h3>
+                <a href="~/Search"><button class="uk-button uk-button-secondary uk-button-small">جستجو کنید</button></a>
+</div>
+        </li>
+    </ul>
+
+    <div class="uk-light">
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+    </div>
+
+</div>
+<!-- slideshow end -->
+<!-- section start -->
+<div class="uk-grid-match uk-grid-small  uk-padding" uk-grid>
+    @foreach (PezeshkPlus.Models.USP_SEL_Top6MedicalFields_Result item in ViewBag.Top6MedicalFields)
+    {
+        <div class="uk-width-1-3@m uk-width-1-1@s">
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    @{
+                        if (item.PicAddress == null)
+                        {
+                            <img class="uk-align-center" src="~/Images/Doctors/default-doctor-pic.jpg" style="border-radius:50%; max-width: 250px; max-height: 250px;">
+                        }
+                        else
+                        {
+                            <img class="uk-align-center" src="@item.PicAddress" style="border-radius:50%; max-width: 250px; max-height: 250px;">
+                        }
+                    }
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">دکتر @item.FirstName @item.LastName</h3>
+                    <h5 class="uk-card-title">تخصص: @item.MedicalField</h5>
+                </div>
+                <div class="uk-card-footer">
+                    <form action="~/Search/More" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" value="@item.LastName" id="name" name="name" />
+                        <input type="hidden" value="@item.Email" id="email" name="email" />
+                        <input class="uk-button uk-button-text" type="submit" value="بیشتر" id="submitform" />
+                    </form>
+                </div>
+            </div>
+        </div>
+                        }
+</div>
+<div class="uk-grid-match uk-grid-small  uk-padding" uk-grid>
+    @foreach (PezeshkPlus.Models.USP_SEL_Top3Articles_Result item in ViewBag.top3News)
+    {
+        <div class="uk-width-1-3@m uk-width-1-1@s">
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <img src="@item.PicAddress" alt="">
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">@item.Topic</h3>
+                    <p>@item.Text...</p>
+                </div>
+                <div class="uk-card-footer uk-text-left">
+                    <form action="~/تازه-های-سلامت/More" method="post">
+                        <input type="hidden" value="@item.Topic" id="name" name="name" />
+                        <input type="hidden" value="@item.ArticleID" id="id" name="id" />
+                        <input class="uk-button uk-button-text" type="submit" value="بیشتر" id="submitform" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- section end -->

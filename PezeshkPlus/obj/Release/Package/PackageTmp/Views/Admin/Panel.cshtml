@@ -1,0 +1,91 @@
+﻿@using PezeshkPlus.Models
+@using PezeshkPlus.Models.Extension
+
+@{
+    ViewBag.Title = "Panel";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<div class="uk-grid-match " uk-grid>
+    <div class="uk-width-1-2@m uk-padding">
+
+        <div class="uk-section uk-margin-remove-bottom uk-padding-small  ">
+            <div class="uk-card uk-card-default uk-card-body uk-align-center  ">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <h3 class="uk-card-title">دکتر های جدید</h3>
+                        <label class="uk-form-danger"> @TempData["ActiveDoctor"] </label>
+                    </div>
+                </div>
+                <div class="uk-card-body">
+                    <ul class="uk-list uk-list-divider">
+                        @foreach (USP_SEL_NotActivatedDoctors_Result item in ViewBag.NotActivatedDoctors)
+                        {
+                            <li>دکتر @item.FirstName @item.LastName => ایمیل: @item.Email - شماره موبایل: @item.PhoneNumber - کد ملی: @item.NationalID - تخصص: @item.MedicalField - تاریخ ثبت نام: @item.RegistrationDate.ToPersian() <a class="uk-form-success" href="~/Admin/Doctor/@item.DoctorID">تایید</a> / <a class="uk-form-danger" href="~/Admin/Doctor/Reject/@item.DoctorID">رد</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-2@m uk-padding">
+
+        <div class="uk-section uk-margin-remove-bottom uk-padding-small  ">
+            <div class="uk-card uk-card-default uk-card-body uk-align-center  ">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <h3 class="uk-card-title">کامنت های جدید</h3>
+                        <label class="uk-form-danger"> @TempData["ActiveComment"] </label>
+                    </div>
+                </div>
+                <div class="uk-card-body">
+                    <ul class="uk-list uk-list-divider">
+                        @foreach (USP_SEL_NotActivatedComments_Result item in ViewBag.NotActivatedComments)
+                        {
+                            <li>کامنت برای دکتر @item.FirstName @item.LastName => نام: @item.WriterName - متن: @item.Text - تاریخ ثبت: @item.DateOfRecord.ToPersian() <a class="uk-form-success" href="~/Admin/Comment/@item.CommentID">تایید</a> / <a class="uk-form-danger" href="~/Admin/Comment/Reject/@item.CommentID">رد</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="uk-grid-match " uk-grid>
+    <div class="uk-width-1-1@l uk-padding">
+        <div class="uk-section uk-margin-remove-bottom uk-padding-small  ">
+            <div class="uk-card uk-card-default uk-card-body uk-align-center  ">
+                <h3 class="uk-card-title">ثبت مقاله ی جدید</h3>
+                <label class="uk-form-label green">@TempData["ArticleSent"]</label>
+                <label class="uk-form-danger">@TempData["ArticleNotSent"]</label>
+                <form action="~/Admin/NewArticle" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <hr>
+                    <fieldset class="uk-fieldset">
+                        <div>
+                            <div class="uk-form-controls uk-margin ">
+                                <input class="uk-input" data-val="true" data-val-required="فیلد اجباری است" data-val-regex="حداکثر 30 کارکتر از حروف انگلیسی و فارسی" data-val-regex-pattern="^[(a-z)|(A-Z)|(\u0600-\u06FF)]+[(a-z)|(A-Z)|(\u0600-\u06FF\s)]{1,30}$" id="Name" name="Name" placeholder="نام نویسنده" type="text" value="" />
+                                <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="uk-form-controls uk-margin ">
+                                <input class="uk-input" data-val="true" data-val-required="فیلد اجباری است" data-val-regex="حداکثر 100 کارکتر از حروف انگلیسی و فارسی" data-val-regex-pattern="^[(a-z)|(A-Z)|(\u0600-\u06FF)]+[(a-z)|(A-Z)|(\u0600-\u06FF\s)]{1,100}$" id="Topic" name="Topic" placeholder="تیتر" type="text" value="" />
+                                <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="uk-margin">
+                                <textarea class="uk-textarea" cols="20" data-val="true" data-val-length="حداکثر 4000 کارکتر مجاز است" data-val-length-max="4000" data-val-required="فیلد اجباری است" id="Text" name="Text" placeholder="متن" rows="8"></textarea>
+                                <span class="field-validation-valid" data-valmsg-for="Text" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label black" for="Picture">عکس</label>
+                                <label class="uk-form-danger">@TempData["PictureError"]</label>
+                                <input class="uk-input" id="Picture" name="Picture" type="file" value="" />
+                                <button class="uk-button uk-margin uk-button-default ">ارسال دیدگاه<span class="uk-margin-small-right" uk-icon="arrow-right"></span></button>
+                            </div>
+                            </div>
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

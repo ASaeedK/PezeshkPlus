@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PezeshkPlusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PezeshkPlusEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="USP_INS_Admin">
+      <Parameter Name="firstName" Mode="In" Type="String" />
+      <Parameter Name="lastName" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="String" />
+      <Parameter Name="nationalID" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_AdminType" ReturnType="Collection(Boolean)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_DEL_Article">
+      <Parameter Name="articleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_INS_Article">
+      <Parameter Name="topic" Mode="In" Type="String" />
+      <Parameter Name="text" Mode="In" Type="String" />
+      <Parameter Name="writerName" Mode="In" Type="String" />
+      <Parameter Name="picAddress" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_Article" ReturnType="Collection(PezeshkPlusModel.USP_SEL_Article_Result)">
+      <Parameter Name="articleID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_Articles" ReturnType="Collection(PezeshkPlusModel.USP_SEL_Articles_Result)" />
+    <FunctionImport Name="USP_SEL_Top3Articles" ReturnType="Collection(PezeshkPlusModel.USP_SEL_Top3Articles_Result)" />
+    <FunctionImport Name="USP_DEL_Comment">
+      <Parameter Name="commentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_DEL_Doctor">
+      <Parameter Name="doctorID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_DEL_DoctorMedicalField">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="medicalFieldName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_INS_AddMedicalField">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="medicalFieldID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_INS_Comment">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="text" Mode="In" Type="String" />
+      <Parameter Name="writerName" Mode="In" Type="String" />
+      <Parameter Name="replyID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_INS_Doctor">
+      <Parameter Name="firstName" Mode="In" Type="String" />
+      <Parameter Name="lastName" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="String" />
+      <Parameter Name="province" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="medicalFieldID" Mode="In" Type="Int32" />
+      <Parameter Name="nationalID" Mode="In" Type="String" />
+      <Parameter Name="clinicPhone" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_INS_SEL_MedicalField" ReturnType="Collection(Int32)">
+      <Parameter Name="medicalField" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_ActiveMedicalFields" ReturnType="Collection(PezeshkPlusModel.USP_SEL_ActiveMedicalFields_Result)" />
+    <FunctionImport Name="USP_SEL_Cities" ReturnType="Collection(String)" />
+    <FunctionImport Name="USP_SEL_ClinicPhone" ReturnType="Collection(Int32)">
+      <Parameter Name="clinicPhone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_Doctor" ReturnType="Collection(PezeshkPlusModel.USP_SEL_Doctor_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_DoctorComments" ReturnType="Collection(PezeshkPlusModel.USP_SEL_DoctorComments_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_IsDoctorActive" ReturnType="Collection(Boolean)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_MedicalFieldID" ReturnType="Collection(Int32)">
+      <Parameter Name="medicalField" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_MedicalFields" ReturnType="Collection(String)" />
+    <FunctionImport Name="USP_SEL_NameAndRole" ReturnType="Collection(PezeshkPlusModel.USP_SEL_NameAndRole_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_NotActivatedComments" ReturnType="Collection(PezeshkPlusModel.USP_SEL_NotActivatedComments_Result)" />
+    <FunctionImport Name="USP_SEL_NotActivatedDoctors" ReturnType="Collection(PezeshkPlusModel.USP_SEL_NotActivatedDoctors_Result)" />
+    <FunctionImport Name="USP_SEL_Provinces" ReturnType="Collection(String)" />
+    <FunctionImport Name="USP_SEL_SearchDoctors" ReturnType="Collection(PezeshkPlusModel.USP_SEL_SearchDoctors_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="province" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="medicalField" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_Top6MedicalFields" ReturnType="Collection(PezeshkPlusModel.USP_SEL_Top6MedicalFields_Result)" />
+    <FunctionImport Name="USP_UPD_ActiveComment">
+      <Parameter Name="commentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_ActiveDoctor">
+      <Parameter Name="doctorID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_Address">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="address" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_City">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_ClinicPhone">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="clinicPhone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_Comment">
+      <Parameter Name="commentID" Mode="In" Type="Int32" />
+      <Parameter Name="newText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_MedicalField">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="medicalFieldID" Mode="In" Type="Int32" />
+      <Parameter Name="newMedicalFieldID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_PicAddress">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="picAddress" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_Province">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="province" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_Rate">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="rate" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_WorkTime">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="workTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_INS_Person">
+      <Parameter Name="personID" Mode="InOut" Type="Int32" />
+      <Parameter Name="firstName" Mode="In" Type="String" />
+      <Parameter Name="lastName" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="String" />
+      <Parameter Name="nationalID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_Email" ReturnType="Collection(Int32)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_NationalID" ReturnType="Collection(Int32)">
+      <Parameter Name="nationalID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_Password" ReturnType="Collection(Int32)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_SEL_PhoneNumber" ReturnType="Collection(Int32)">
+      <Parameter Name="phoneNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_Email">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="newEmail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_FirstName">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="firstName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_LastName">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="lastName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_NationalID">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="nationalID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_Password">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_UPD_PhoneNumber">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="USP_SEL_Article_Result">
+    <Property Type="Int32" Name="ArticleID" Nullable="false" />
+    <Property Type="String" Name="Topic" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Text" Nullable="false" />
+    <Property Type="String" Name="PicAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="WriterName" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="DateOfRecord" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_Articles_Result">
+    <Property Type="Int32" Name="ArticleID" Nullable="false" />
+    <Property Type="String" Name="Topic" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Text" Nullable="true" />
+    <Property Type="String" Name="WriterName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="PicAddress" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="DateOfRecord" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_Top3Articles_Result">
+    <Property Type="Int32" Name="ArticleID" Nullable="false" />
+    <Property Type="String" Name="Topic" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Text" Nullable="true" />
+    <Property Type="String" Name="WriterName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="PicAddress" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="DateOfRecord" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_ActiveMedicalFields_Result">
+    <Property Type="String" Name="MedicalField" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Log" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_Doctor_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="NationalID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PhoneNumber" Nullable="false" MaxLength="13" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="70" />
+    <Property Type="DateTime" Name="RegistrationDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ClinicPhone" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="Province" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PicAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="WorkTime" Nullable="true" MaxLength="100" />
+    <Property Type="Byte" Name="Rate" Nullable="false" />
+    <Property Type="Boolean" Name="StatusActive" Nullable="false" />
+    <Property Type="String" Name="MedicalField" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_DoctorComments_Result">
+    <Property Type="Int32" Name="CommentID" Nullable="false" />
+    <Property Type="String" Name="Text" Nullable="false" />
+    <Property Type="String" Name="WriterName" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="ReplyID" Nullable="true" />
+    <Property Type="DateTime" Name="DateOfRecord" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_NameAndRole_Result">
+    <Property Type="Int32" Name="Role" Nullable="false" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_NotActivatedComments_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="CommentID" Nullable="false" />
+    <Property Type="String" Name="Text" Nullable="false" />
+    <Property Type="String" Name="WriterName" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="ReplyID" Nullable="true" />
+    <Property Type="DateTime" Name="DateOfRecord" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_NotActivatedDoctors_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="NationalID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="PhoneNumber" Nullable="false" MaxLength="13" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="70" />
+    <Property Type="DateTime" Name="RegistrationDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="DoctorID" Nullable="false" />
+    <Property Type="String" Name="ClinicPhone" Nullable="true" MaxLength="13" />
+    <Property Type="String" Name="Province" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PicAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="WorkTime" Nullable="true" MaxLength="100" />
+    <Property Type="Byte" Name="Rate" Nullable="false" />
+    <Property Type="String" Name="MedicalField" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_SearchDoctors_Result">
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PicAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="WorkTime" Nullable="true" MaxLength="100" />
+    <Property Type="Byte" Name="Rate" Nullable="false" />
+    <Property Type="String" Name="MedicalField" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="USP_SEL_Top6MedicalFields_Result">
+    <Property Type="String" Name="MedicalField" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PicAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="WorkTime" Nullable="true" MaxLength="100" />
+    <Property Type="Byte" Name="Rate" Nullable="false" />
+  </ComplexType>
+</Schema>

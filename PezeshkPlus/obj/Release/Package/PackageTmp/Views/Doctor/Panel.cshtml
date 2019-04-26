@@ -1,0 +1,126 @@
+﻿@model PezeshkPlus.Models.CustomModel.Search
+@using PezeshkPlus.Models
+@using PezeshkPlus.Models.Extension
+
+@{
+    ViewBag.Title = "Panel";
+    Layout = "~/Views/Shared/_Main.cshtml";
+    List<USP_SEL_Doctor_Result> doctorInfo = ViewBag.DoctorInfo;
+}
+
+<!--- cover start ------------------------------>
+
+<div class="uk-width-expand">
+
+    <div class="uk-inline uk-margin  ">
+
+        <div class="uk-margin-right"> <img src="~/Images/about2.jpg" alt="" height="100">   </div>
+
+
+
+
+        <div class="uk-position-small uk-position-bottom-right uk-overlay uk-overlay-default">
+            @{
+                if (doctorInfo[0].PicAddress == null)
+                {
+                    <img class="uk-border-rounded" width="150" height="150" alt="Border rounded" src="~/Images/Doctors/default-doctor-pic.jpg">
+                }
+                else
+                {
+                    <img class="uk-border-rounded" width="150" height="150" alt="Border rounded" src="@doctorInfo[0].PicAddress">
+                }
+            }
+            <fieldset class="rating uk-position-bottom-center">
+                @for (int i = 0; i < (doctorInfo[0].Rate / 10); i++)
+                {
+                    <input type="radio" checked value="@(i + 1)" /><label class="full" for="@string.Format($"star{i + 1}")"></label>
+                }
+            </fieldset>
+        </div>
+
+
+    </div>
+    <!---cover end-------------------------------->
+    <!-- doctor start ------------------------------>
+    <div class="uk-container uk-container-large uk-margin-remove-top uk-padding-remove-top">
+
+        <div class="uk-text-center uk-margin-remove-top uk-padding-remove-top" uk-grid>
+            <div class="uk-width-1-3@m uk-width-1-1@s uk-margin-remove-top uk-padding-remove-top">
+                <div class="uk-card-header " style="background-color: #3333!important">
+                    <h5 class="uk-card-title uk-text-right ">دکتر @doctorInfo[0].FirstName @doctorInfo[0].LastName</h5>
+
+
+                </div>
+
+                <div class="uk-card uk-card-default uk-card-body ">
+
+
+                    <ul class="uk-list uk-list-divider uk-text-right ">
+
+                        <li>
+                            <label style="color: #cc0000 !important;">  <span uk-icon="icon: chevron-double-right"></span>آدرس مطب :</label>
+                            <br>
+                            @doctorInfo[0].Province - @doctorInfo[0].City - @doctorInfo[0].Address
+                        </li>
+                        <li>
+                            <label style="color: #cc0000 !important;">  <span uk-icon="icon: chevron-double-right"></span>شماره تلفن :</label>
+                            <br>
+                            @doctorInfo[0].PhoneNumber
+                        </li>
+                        <li>
+                            <label style="color: #cc0000 !important;">  <span uk-icon="icon: chevron-double-right"></span>شماره تلفن مطب :</label>
+                            <br>
+                            @doctorInfo[0].ClinicPhone
+                        </li>
+                        <li>
+                            <label style="color: #cc0000 !important;">  <span uk-icon="icon: chevron-double-right"></span> تخصص :</label>
+                            <br>
+                            @doctorInfo[0].MedicalField
+                        </li>
+                        <li>
+                            <label style="color: #cc0000 !important;">  <span uk-icon="icon: chevron-double-right"></span> ساعت کاری :</label>
+                            <br>
+                            @doctorInfo[0].WorkTime
+                        </li>
+                    </ul>
+                </div>
+                <div class="uk-card uk-card-default uk-card-footer ">
+                    <a href="~/Doctor/ProfileSet" class="uk-icon-link">تغییر مشخصات</a>
+                </div>
+            </div>
+
+            <div class="uk-width-2-3@m uk-width-1-1@s">
+
+
+                <div class="uk-child-width-1-1@m" uk-grid>
+                    <h3 class=" uk-heading-line uk-align-center "><span>دیدگاه کاربران</span></h3>
+                    @foreach (USP_SEL_DoctorComments_Result item in ViewBag.Comments)
+                    {
+                        <article class="uk-comment">
+                            <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <h4 class="uk-comment-title uk-margin-remove uk-text-right"><a class="uk-link-reset" href="#">@item.WriterName</a></h4>
+                                    <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+
+                                        <li><a href="#">@item.DateOfRecord.ToDaysAgo()</a></li>
+                                        <li><a href="#">Reply</a></li>
+                                    </ul>
+                                </div>
+                            </header>
+                            <div class="uk-comment-body uk-text-right">
+                                <p>@item.Text</p>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+
+                <ul class="uk-pagination uk-padding uk-visible@s">
+                    <li><a href="#"><span class="uk-margin-small-left" uk-pagination-previous></span> قبلی</a></li>
+                    <li class="uk-margin-auto-right"><a href="#">بعدی <span class="uk-margin-small-right" uk-pagination-next></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--doctor end-------------------------------->

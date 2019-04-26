@@ -1,0 +1,37 @@
+﻿@using PezeshkPlus.Models;
+@using PezeshkPlus.Models.Extension;
+
+@{
+    ViewBag.Title = "TopNewsMore";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+@{
+    List<USP_SEL_Article_Result> Article = ViewBag.Article;
+}
+
+<div class="container">
+
+    <div class="uk-container">
+        <div class="uk-panel">
+            <img class="uk-align-left uk-margin-remove-adjacent uk-padding" src="@Article[0].PicAddress" width="625" height="550" alt="aboutus">
+            <div class="inner">
+                <h2 class="uk-padding">@Article[0].Topic</h2>
+                
+                <div class='aboutus_text'>
+                    <p class='aboutus_text_caption ' style="color:#565656!important">
+                        @Article[0].Text
+                    </p>
+                    <div class='aboutus_service'>
+                        <h5>نوشته ی: @Article[0].WriterName</h5>
+                        <h5>@Article[0].DateOfRecord.ToPersian()</h5>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+

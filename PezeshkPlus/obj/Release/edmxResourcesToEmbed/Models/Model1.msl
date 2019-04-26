@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PezeshkPlusModelStoreContainer" CdmEntityContainer="PezeshkPlusEntities">
+    <FunctionImportMapping FunctionImportName="USP_INS_Admin" FunctionName="PezeshkPlusModel.Store.USP_INS_Admin" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_AdminType" FunctionName="PezeshkPlusModel.Store.USP_SEL_AdminType" />
+    <FunctionImportMapping FunctionImportName="USP_DEL_Article" FunctionName="PezeshkPlusModel.Store.USP_DEL_Article" />
+    <FunctionImportMapping FunctionImportName="USP_INS_Article" FunctionName="PezeshkPlusModel.Store.USP_INS_Article" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_Article" FunctionName="PezeshkPlusModel.Store.USP_SEL_Article">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_Article_Result">
+          <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="PicAddress" ColumnName="PicAddress" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="DateOfRecord" ColumnName="DateOfRecord" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_Articles" FunctionName="PezeshkPlusModel.Store.USP_SEL_Articles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_Articles_Result">
+          <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="PicAddress" ColumnName="PicAddress" />
+          <ScalarProperty Name="DateOfRecord" ColumnName="DateOfRecord" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_Top3Articles" FunctionName="PezeshkPlusModel.Store.USP_SEL_Top3Articles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_Top3Articles_Result">
+          <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="PicAddress" ColumnName="PicAddress" />
+          <ScalarProperty Name="DateOfRecord" ColumnName="DateOfRecord" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_DEL_Comment" FunctionName="PezeshkPlusModel.Store.USP_DEL_Comment" />
+    <FunctionImportMapping FunctionImportName="USP_DEL_Doctor" FunctionName="PezeshkPlusModel.Store.USP_DEL_Doctor" />
+    <FunctionImportMapping FunctionImportName="USP_DEL_DoctorMedicalField" FunctionName="PezeshkPlusModel.Store.USP_DEL_DoctorMedicalField" />
+    <FunctionImportMapping FunctionImportName="USP_INS_AddMedicalField" FunctionName="PezeshkPlusModel.Store.USP_INS_AddMedicalField" />
+    <FunctionImportMapping FunctionImportName="USP_INS_Comment" FunctionName="PezeshkPlusModel.Store.USP_INS_Comment" />
+    <FunctionImportMapping FunctionImportName="USP_INS_Doctor" FunctionName="PezeshkPlusModel.Store.USP_INS_Doctor" />
+    <FunctionImportMapping FunctionImportName="USP_INS_SEL_MedicalField" FunctionName="PezeshkPlusModel.Store.USP_INS_SEL_MedicalField" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_ActiveMedicalFields" FunctionName="PezeshkPlusModel.Store.USP_SEL_ActiveMedicalFields">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_ActiveMedicalFields_Result">
+          <ScalarProperty Name="MedicalField" ColumnName="MedicalField" />
+          <ScalarProperty Name="Log" ColumnName="Log" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_Cities" FunctionName="PezeshkPlusModel.Store.USP_SEL_Cities" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_ClinicPhone" FunctionName="PezeshkPlusModel.Store.USP_SEL_ClinicPhone" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_Doctor" FunctionName="PezeshkPlusModel.Store.USP_SEL_Doctor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_Doctor_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="ClinicPhone" ColumnName="ClinicPhone" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PicAddress" ColumnName="PicAddress" />
+          <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="StatusActive" ColumnName="StatusActive" />
+          <ScalarProperty Name="MedicalField" ColumnName="MedicalField" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_DoctorComments" FunctionName="PezeshkPlusModel.Store.USP_SEL_DoctorComments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_DoctorComments_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="ReplyID" ColumnName="ReplyID" />
+          <ScalarProperty Name="DateOfRecord" ColumnName="DateOfRecord" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_IsDoctorActive" FunctionName="PezeshkPlusModel.Store.USP_SEL_IsDoctorActive" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_MedicalFieldID" FunctionName="PezeshkPlusModel.Store.USP_SEL_MedicalFieldID" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_MedicalFields" FunctionName="PezeshkPlusModel.Store.USP_SEL_MedicalFields" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_NameAndRole" FunctionName="PezeshkPlusModel.Store.USP_SEL_NameAndRole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_NameAndRole_Result">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_NotActivatedComments" FunctionName="PezeshkPlusModel.Store.USP_SEL_NotActivatedComments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_NotActivatedComments_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="ReplyID" ColumnName="ReplyID" />
+          <ScalarProperty Name="DateOfRecord" ColumnName="DateOfRecord" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_NotActivatedDoctors" FunctionName="PezeshkPlusModel.Store.USP_SEL_NotActivatedDoctors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_NotActivatedDoctors_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="ClinicPhone" ColumnName="ClinicPhone" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PicAddress" ColumnName="PicAddress" />
+          <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="MedicalField" ColumnName="MedicalField" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_Provinces" FunctionName="PezeshkPlusModel.Store.USP_SEL_Provinces" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_SearchDoctors" FunctionName="PezeshkPlusModel.Store.USP_SEL_SearchDoctors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_SearchDoctors_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PicAddress" ColumnName="PicAddress" />
+          <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="MedicalField" ColumnName="MedicalField" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_SEL_Top6MedicalFields" FunctionName="PezeshkPlusModel.Store.USP_SEL_Top6MedicalFields">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PezeshkPlusModel.USP_SEL_Top6MedicalFields_Result">
+          <ScalarProperty Name="MedicalField" ColumnName="MedicalField" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PicAddress" ColumnName="PicAddress" />
+          <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_UPD_ActiveComment" FunctionName="PezeshkPlusModel.Store.USP_UPD_ActiveComment" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_ActiveDoctor" FunctionName="PezeshkPlusModel.Store.USP_UPD_ActiveDoctor" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_Address" FunctionName="PezeshkPlusModel.Store.USP_UPD_Address" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_City" FunctionName="PezeshkPlusModel.Store.USP_UPD_City" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_ClinicPhone" FunctionName="PezeshkPlusModel.Store.USP_UPD_ClinicPhone" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_Comment" FunctionName="PezeshkPlusModel.Store.USP_UPD_Comment" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_MedicalField" FunctionName="PezeshkPlusModel.Store.USP_UPD_MedicalField" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_PicAddress" FunctionName="PezeshkPlusModel.Store.USP_UPD_PicAddress" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_Province" FunctionName="PezeshkPlusModel.Store.USP_UPD_Province" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_Rate" FunctionName="PezeshkPlusModel.Store.USP_UPD_Rate" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_WorkTime" FunctionName="PezeshkPlusModel.Store.USP_UPD_WorkTime" />
+    <FunctionImportMapping FunctionImportName="USP_INS_Person" FunctionName="PezeshkPlusModel.Store.USP_INS_Person" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_Email" FunctionName="PezeshkPlusModel.Store.USP_SEL_Email" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_NationalID" FunctionName="PezeshkPlusModel.Store.USP_SEL_NationalID" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_Password" FunctionName="PezeshkPlusModel.Store.USP_SEL_Password" />
+    <FunctionImportMapping FunctionImportName="USP_SEL_PhoneNumber" FunctionName="PezeshkPlusModel.Store.USP_SEL_PhoneNumber" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_Email" FunctionName="PezeshkPlusModel.Store.USP_UPD_Email" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_FirstName" FunctionName="PezeshkPlusModel.Store.USP_UPD_FirstName" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_LastName" FunctionName="PezeshkPlusModel.Store.USP_UPD_LastName" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_NationalID" FunctionName="PezeshkPlusModel.Store.USP_UPD_NationalID" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_Password" FunctionName="PezeshkPlusModel.Store.USP_UPD_Password" />
+    <FunctionImportMapping FunctionImportName="USP_UPD_PhoneNumber" FunctionName="PezeshkPlusModel.Store.USP_UPD_PhoneNumber" />
+  </EntityContainerMapping>
+</Mapping>

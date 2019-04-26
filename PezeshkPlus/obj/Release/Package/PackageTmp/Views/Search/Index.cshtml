@@ -1,0 +1,118 @@
+﻿@model PezeshkPlus.Models.CustomModel.Search
+@using PezeshkPlus.Models
+
+@{
+    ViewBag.Title = "جست و جو";
+    Layout = "~/Views/Shared/_Main.cshtml";
+    List<USP_SEL_SearchDoctors_Result> searchResult = ViewBag.SearchResult;
+}
+<!-- section start -->
+<div class="uk-grid-match uk-grid-small  uk-padding" uk-grid>
+    <div class="uk-width-1-1@m uk-width-1-1@s">
+        <div class="uk-card uk-card-default ">
+            <form class="uk-grid-small uk-padding-small" uk-grid action="~/Search">
+                <div class="uk-width-1-4@s">
+                    @Html.TextBoxFor(Model => Model.Name, new { @class = "uk-input", placeholder = "نام پزشک" })
+                    @Html.ValidationMessageFor(Model => Model.Name)
+                </div>
+                <div class="uk-width-1-4@s">
+                    <select class="uk-select" id="Province" name="Province">
+                        <option>انتخاب استان</option>
+                        @foreach (string item in ViewBag.Provinces)
+                        {
+                            <option>@item</option>
+                        }
+                    </select>
+                </div>
+                <div class="uk-width-1-4@s">
+                    <select class="uk-select" id="City" name="City">
+                        <option>انتخاب شهر</option>
+                        @foreach (string item in ViewBag.Cities)
+                        {
+                            <option>@item</option>
+                        }
+                    </select>
+                </div>
+                <div class="uk-width-1-4@s">
+                    <select class="uk-select" id="MedicalFieldName" name="MedicalFieldName">
+                        <option>انتخاب نوع تخصص</option>
+                        @foreach (USP_SEL_ActiveMedicalFields_Result item in ViewBag.MedicalFields)
+                        {
+                            <option>@item.MedicalField</option>
+                        }
+                    </select>
+                </div>
+                <div class="uk-width-1-1@s ">
+                    <button class="uk-button uk-button-primary uk-align-center">جستجو</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    @foreach (USP_SEL_SearchDoctors_Result item in searchResult)
+    {
+        <div class="uk-width-1-4@m uk-width-1-2@s">
+            <div class="uk-card uk-card-default ">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-auto">
+                            @{
+                                if (item.PicAddress == null)
+                                {
+                                    <img class="uk-border-circle" width="80" height="80" src="~/Images/Doctors/default-doctor-pic.jpg">
+                                }
+                                else
+                                {
+                                    <img class="uk-border-circle" width="80" height="80" src="@item.PicAddress">
+                                }
+                            }
+                        </div>
+                        <div class="uk-width-expand">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">دکتر @item.FirstName @item.LastName</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-card-body">
+                    <ul class="uk-list uk-list-divider">
+                        <li>تخصص: @item.MedicalField</li>
+                        @{
+                            if (item.WorkTime == null)
+                            {
+                                <li>ساعات کاری: تعیین نشده</li>
+                            }
+                            else
+                            {
+                                <li>ساعات کاری: @item.WorkTime</li>
+                            }
+                        }
+                        @{
+                            if (item.Address == null)
+                            {
+                                <li>آدرس: تعیین نشده</li>
+                            }
+                            else
+                            {
+                                <li>آدرس: @item.Address</li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="uk-card-footer">
+                    <form action="~/Search/More" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" value="@item.LastName" id="name" name="name" />
+                        <input type="hidden" value="@item.Email" id="email" name="email" />
+                        <input class="uk-button uk-button-text" type="submit" value="بیشتر" id="submitform" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<ul class="uk-pagination uk-padding uk-visible@s">
+    <li><a href="#"><span class="uk-margin-small-left" uk-pagination-previous></span> قبلی</a></li>
+    <li class="uk-margin-auto-right"><a href="#">بعدی <span class="uk-margin-small-right" uk-pagination-next></span></a></li>
+</ul>
+
+<!-- section end -->

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PezeshkPlusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="USP_INS_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+    <Parameter Name="firstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="nationalID" Type="varchar" Mode="In" />
+    <Parameter Name="type" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_AdminType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Admin">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_DEL_Article" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Article">
+    <Parameter Name="articleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_INS_Article" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Article">
+    <Parameter Name="topic" Type="nvarchar" Mode="In" />
+    <Parameter Name="text" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="writerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="picAddress" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_Article" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Article">
+    <Parameter Name="articleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_Articles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Article" />
+  <Function Name="USP_SEL_Top3Articles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Article" />
+  <Function Name="USP_DEL_Comment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="commentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_DEL_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="doctorID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_DEL_DoctorMedicalField" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="medicalFieldName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_INS_AddMedicalField" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="medicalFieldID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_INS_Comment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="text" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="writerName" Type="nvarchar" Mode="In" />
+    <Parameter Name="replyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_INS_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="firstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="province" Type="nvarchar" Mode="In" />
+    <Parameter Name="city" Type="nvarchar" Mode="In" />
+    <Parameter Name="medicalFieldID" Type="int" Mode="In" />
+    <Parameter Name="nationalID" Type="varchar" Mode="In" />
+    <Parameter Name="clinicPhone" Type="varchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_INS_SEL_MedicalField" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="medicalField" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_ActiveMedicalFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor" />
+  <Function Name="USP_SEL_Cities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor" />
+  <Function Name="USP_SEL_ClinicPhone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="clinicPhone" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_Doctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_DoctorComments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_IsDoctorActive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_MedicalFieldID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="medicalField" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_MedicalFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor" />
+  <Function Name="USP_SEL_NameAndRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_NotActivatedComments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor" />
+  <Function Name="USP_SEL_NotActivatedDoctors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor" />
+  <Function Name="USP_SEL_Provinces" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor" />
+  <Function Name="USP_SEL_SearchDoctors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="province" Type="nvarchar" Mode="In" />
+    <Parameter Name="city" Type="nvarchar" Mode="In" />
+    <Parameter Name="medicalField" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_Top6MedicalFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor" />
+  <Function Name="USP_UPD_ActiveComment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="commentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_ActiveDoctor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="doctorID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_Address" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_City" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="city" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_ClinicPhone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="clinicPhone" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_Comment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="commentID" Type="int" Mode="In" />
+    <Parameter Name="newText" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_MedicalField" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="medicalFieldID" Type="int" Mode="In" />
+    <Parameter Name="newMedicalFieldID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_PicAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="picAddress" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_Province" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="province" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_Rate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="rate" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_WorkTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Doctor">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="workTime" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_INS_Person" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="personID" Type="int" Mode="InOut" />
+    <Parameter Name="firstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="nationalID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_Email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_NationalID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="nationalID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_SEL_PhoneNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_Email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="newEmail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_FirstName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="firstName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_LastName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_NationalID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="nationalID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_UPD_PhoneNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Person">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="PezeshkPlusModelStoreContainer" />
+</Schema>
