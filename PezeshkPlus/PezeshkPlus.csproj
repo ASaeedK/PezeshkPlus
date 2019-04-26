@@ -288,7 +288,6 @@
     <Content Include="Fonts\woff\IRANSansWeb%28FaNum%29_UltraLight.woff" />
     <Content Include="Views\Shared\_Main.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\SiteMap.cshtml" />
     <Content Include="Views\Home\Aboutus.cshtml" />
     <Content Include="Views\Blog\TopNews.cshtml" />
     <Content Include="Views\Doctor\Confirmation.cshtml" />

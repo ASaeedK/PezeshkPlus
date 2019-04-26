@@ -30,13 +30,6 @@ namespace PezeshkPlus.Controllers
             return View(model);
         }
 
-        public ActionResult SiteMap()
-        {
-            Search model = new Search();
-
-            return View(model);
-        }
-
         public ActionResult ContactUs()
         {
             EmailContact model = new EmailContact();
